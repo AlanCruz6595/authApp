@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-dark indigo">
+  <a class="navbar-brand" href="#">App Authentication</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/home">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/precios">Precios</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/protegida" *ngIf="auth.loggedIn">Protegida</a>
+      </li>
+    </ul>
+    <span class="navbar-text white-text">
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+        <li class="nav-item avatar dropdown" dropdown>
+          <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+            <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" style="max-width: 50%;"
+              class="img-fluid rounded-circle z-depth-0"></a>
+          <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+            <a class="dropdown-item waves-light" mdbWavesEffect (click)="auth.login()" *ngIf="!auth.loggedIn">Mi Perfil</a>
+            <a class="dropdown-item waves-light" mdbWavesEffect (click)="auth.logout()" *ngIf="auth.loggedIn">Cerrar Sesión</a>
+          </div>
+        </li>
+      </ul>
+    </span>
+  </div>
+</nav>
